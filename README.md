@@ -22,4 +22,4 @@ To add new marketplace support you need:
   
   if something doesn't work try to change user agen in get_html function
   
-  # This is early build. Application is not fully tested yet.
+  # This is the early build. Application is not fully tested yet.
