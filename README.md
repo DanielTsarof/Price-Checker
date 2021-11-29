@@ -4,7 +4,7 @@ price checker windows application
 This application monitors the prices of selected products and displays a notification if the price has changed.
 
 To configure the application, run the settings file, it has a simple gui. To track some product add it's url
-in the big text field (aliexpress, ozon and sbrmegamarket are currently supported). Then add a check delay in 
+in the big text field (aliexpress, ozon and sbrmegamarket are currently supported, Amazon and Taobao will be soon). Then add a check delay in 
 the small text field in format days-hours-minutes (like 00-10-30) and click "Создать" (Create) button. Click
 on "Просмотреть" (manage) button to show all created checker objects in the big text field. Use check-box if
 you want to recieve notifications only if price is decreased. After creating  the objects tun the __main__ 
