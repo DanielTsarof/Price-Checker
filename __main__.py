@@ -7,7 +7,7 @@ import pickle
 if __name__ == '__main__':
 
     print(show_list())
-    # ch_set_delay(1, '00-03-00')
+
     # main loop
     while True:
         for obj in checker_objects:

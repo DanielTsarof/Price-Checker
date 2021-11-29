@@ -2,6 +2,7 @@ import datetime
 from checker_functions import Price, get_domain, aliexpress_price, ozon_price, sbermarket_price
 from typing import Tuple
 
+# keys: domains, values: price get functions
 price_get_functions = {'aliexpress.ru': aliexpress_price,
                        'www.ozon.ru': ozon_price,
                        'sbermegamarket.ru': sbermarket_price
@@ -9,6 +10,7 @@ price_get_functions = {'aliexpress.ru': aliexpress_price,
 
 
 class Checker():
+    '''Class representing product, it's url, and time interval for price checking.'''
 
     @staticmethod
     def _set_delay(delay: str):
@@ -35,6 +37,8 @@ class Checker():
         self.check_delay = self._set_delay(delay)
 
     def check_price(self) -> Tuple[Price, Price]:
+        '''Checks if product price has changed
+        '''
         current_price = self.get_price(self.url) # - Price('rub',100)
         self.price, self.prev_price = current_price, self.price
         if current_price < self.prev_price:
@@ -43,6 +47,8 @@ class Checker():
             return self.price, self.prev_price
 
     def check_time(self):
+        '''returns True fi current time > time for the next check else False.
+        '''
         if datetime.datetime.now() > self.next_check:
             self.next_check = datetime.datetime.now() + self.check_delay
             return True
