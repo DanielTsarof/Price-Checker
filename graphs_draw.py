@@ -6,10 +6,13 @@ from datetime import datetime
 
 def draw_graph(url):
     data = ret_prod_from_db(url)
-    data = dict(
-        sorted(
-            [(datetime.strptime(x[2], '%Y-%m-%d %H:%M'), x[1]) for x in data],
-            key=lambda a: a[0]))
+    if data:
+        data = dict(
+            sorted(
+                [(datetime.strptime(x[2], '%Y-%m-%d %H:%M'), x[1]) for x in data],
+                key=lambda a: a[0]))
+    else:
+        raise ValueError
 
     print(type(data))
     print(matplotlib.dates.date2num(

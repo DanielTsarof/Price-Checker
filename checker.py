@@ -43,6 +43,7 @@ class Checker():
         '''
         current_price = self.get_price(self.url) # - Price('rub',100)
         self.price, self.prev_price = current_price, self.price
+        add_str_db(self.url, self.price, datetime.datetime.now())
         if current_price < self.prev_price:
             return self.price, self.prev_price
         if current_price > self.prev_price and self.decline_only is False:
