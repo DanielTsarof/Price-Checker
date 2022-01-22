@@ -1,6 +1,7 @@
 import datetime
 from checker_functions import Price, get_domain, aliexpress_price, ozon_price, sbermarket_price
 from typing import Tuple
+from sqlite_db import add_str_db
 
 # keys: domains, values: price get functions
 price_get_functions = {'aliexpress.ru': aliexpress_price,
@@ -32,6 +33,7 @@ class Checker():
         self.prev_price = None
         self.next_check = datetime.datetime.now() + self.check_delay
         self.decline_only = decline_only
+        add_str_db(self.url, self.price, datetime.datetime.now())
 
     def delay(self, delay: str):
         self.check_delay = self._set_delay(delay)
@@ -47,7 +49,7 @@ class Checker():
             return self.price, self.prev_price
 
     def check_time(self):
-        '''returns True fi current time > time for the next check else False.
+        '''returns True if current time > time for the next check else False.
         '''
         if datetime.datetime.now() > self.next_check:
             self.next_check = datetime.datetime.now() + self.check_delay
