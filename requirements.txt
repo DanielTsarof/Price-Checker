@@ -1,0 +1,7 @@
+matplotlib>=3.5.0
+bs4
+requests
+unidecode
+win10toast_click
+webbrowser
+PyQt5
