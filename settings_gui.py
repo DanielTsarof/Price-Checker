@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 
-#
 # Created by: PyQt5 UI code generator 5.15.2
 #
 # WARNING: Any manual changes made to this file will be lost when pyuic5 is
